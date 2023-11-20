@@ -1,23 +1,30 @@
-let nomeHeroi = "Donanfer"
-let xp = 7000
-let classificacao = ""
+let vitorias = 50
+let derrotas = 30
+let dadosDoHeroi = calculadoraDePartidasRanqueadas(vitorias, derrotas)
+let classificacaoDoHeroi = definindoClassificacao(dadosDoHeroi)
 
-if(xp <= 1000){
-    classificacao = "Ferro"
-}else if(xp > 1000 && xp <= 2000){
-    classificacao = "Bronze"
-}else if(xp > 2000 && xp <= 5000){
-    classificacao = "Prata"
-}else if(xp > 5000 && xp <= 7000){
-    classificacao = "Ouro"
-}else if(xp > 7000 && xp <= 8000){
-    classificacao = "Platina"
-}else if(xp > 8000 && xp <= 9000){
-    classificacao = "Ascendente"
-}else if(xp > 9000 && xp <= 10000){
-    classificacao = "Imortal"
-}else if(xp >= 10001){
-    classificacao = "Radiante"
+function calculadoraDePartidasRanqueadas(vit, der){
+    return vit - der
 }
 
-console.log("O Herói de nome " + nomeHeroi + " está no nível de " + classificacao)
+function definindoClassificacao(dados){
+    if(dados <= 10){
+        classificacao = "Ferro"
+    }else if(dados > 10 && dados <= 20){
+        classificacao = "Bronze"
+    }else if(dados > 20 && dados <= 50){
+        classificacao = "Prata"
+    }else if(dados > 50 && dados <= 80){
+        classificacao = "Ouro"
+    }else if(dados > 80 && dados <= 90){
+        classificacao = "Diamante"
+    }else if(dados > 90 && dados <= 100){
+        classificacao = "Lendario"
+    }else if(dados >= 100){
+        classificacao = "Imortal"
+    }
+
+    return classificacao
+}
+
+console.log(`O Herói tem de saldo de ${dadosDoHeroi} está no nível de ${classificacaoDoHeroi}`)
